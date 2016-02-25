@@ -1,0 +1,16 @@
+#land{
+  background-color: $dark-color;
+  color: $light-color;
+  height: 100vh;
+  border: 1px solid transparent;
+
+  h1{
+    font-size: 7vmin;
+  }
+
+  a#login-trigger {
+    background-color: $primary-color;
+    color: $light-color;
+    font-weight: $thin-font-weight;
+  }
+}
