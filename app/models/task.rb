@@ -16,6 +16,8 @@ class Task < ActiveRecord::Base
     FINISHED = 2
   end
 
+  validates :title,presence: true
+
   def not_started?
     self.status == Status::NOT_STARTED
   end

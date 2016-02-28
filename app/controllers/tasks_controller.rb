@@ -8,9 +8,27 @@ class TasksController < ApplicationController
      Task::Status::FINISHED)
   end
 
+  def new
+    @task = Task.new
+  end
+
+  def create
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to tasks_path
+    else
+      render :new
+    end
+  end
+
   def update
     @task = Task.find(params[:id])
     @task.update_attribute(:status,
     params[:status].to_i)
+  end
+
+  private
+  def task_params
+    params.require(:task).permit(:title, :status)
   end
 end
