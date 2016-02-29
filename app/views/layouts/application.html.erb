@@ -8,6 +8,11 @@
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,200,300,500,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <% if user_signed_in? %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login", new_user_session_path %>
+  <% end %>
 <%= flash_messages_tags %>
 <%= yield %>
 
