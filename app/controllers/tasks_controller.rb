@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     @task.update_attribute(:status,
     params[:status].to_i)
   end
-
+  
   private
   def task_params
     params.require(:task).permit(:title, :status)

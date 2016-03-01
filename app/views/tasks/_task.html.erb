@@ -11,5 +11,7 @@
   <%= link_to("Finish", task_path(task, status:
   Task::Status::FINISHED), method: :patch,
   remote: true) if task.in_progress? %>
+  <%= content_tag(:span, "|") %>
+  <%= link_to "Share", new_task_share_path(task_id: task.id) %>
   )
 </li>
