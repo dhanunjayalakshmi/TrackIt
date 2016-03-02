@@ -8,6 +8,7 @@ class TasksController < ApplicationController
      Task::Status::IN_PROGRESS)
     @finished_tasks = current_user.tasks.where(status:
      Task::Status::FINISHED)
+     @shared_tasks = current_user.shared_tasks
   end
 
   def new
@@ -28,7 +29,7 @@ class TasksController < ApplicationController
     @task.update_attribute(:status,
     params[:status].to_i)
   end
-  
+
   private
   def task_params
     params.require(:task).permit(:title, :status)
